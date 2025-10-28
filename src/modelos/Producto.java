@@ -17,6 +17,7 @@ public class Producto {
     private int stock;
     private double precio;
     private boolean disponible;
+    private String categoria;
 
     public Producto() {
     }
@@ -67,6 +68,16 @@ public class Producto {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
+    
     
     
     
