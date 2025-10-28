@@ -56,7 +56,6 @@ public class producto_controller {
                
         // producto.getId() = id
         // producto.getId().equalsIgnoreCase(id)
-        
         return productos.removeIf(producto -> producto.getId().equalsIgnoreCase(id));
     }
     

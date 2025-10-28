@@ -51,15 +51,16 @@ public class PrincipalView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbl_productName = new javax.swing.JLabel();
         txt_productName = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        contenedor_tabla = new javax.swing.JScrollPane();
         tbl_productos = new javax.swing.JTable();
         bt_buscarProduct = new javax.swing.JButton();
         bt_agregarProduct = new javax.swing.JButton();
         bt_eliminarProduct = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        btn_nav_crear = new javax.swing.JMenuItem();
+        btn_nav_listar = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +91,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(tbl_productos);
+        contenedor_tabla.setViewportView(tbl_productos);
 
         bt_buscarProduct.setText("Buscar Producto");
         bt_buscarProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -119,8 +120,8 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(contenedor_tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,17 +173,32 @@ public class PrincipalView extends javax.swing.JFrame {
                                     .addComponent(txt_productPrec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbl)))
                             .addComponent(lbl_productName)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                    .addComponent(contenedor_tabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("jLabel2");
+        jMenu1.setText("Acciones");
 
-        jMenu1.setText("File");
+        btn_nav_crear.setText("Crear");
+        btn_nav_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nav_crearActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btn_nav_crear);
+
+        btn_nav_listar.setText("Listar");
+        btn_nav_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nav_listarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btn_nav_listar);
+
+        jMenuItem7.setText("Bscar");
+        jMenu1.add(jMenuItem7);
+
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -193,25 +209,21 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(62, 62, 62)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -241,9 +253,11 @@ public class PrincipalView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Producto eliminado");
         }else{
             JOptionPane.showMessageDialog(this, "Hubo un error en la eliminacion");
+            
         }
         mostrarProductos();
         clear();
+        
         
     }//GEN-LAST:event_bt_eliminarProductActionPerformed
 
@@ -254,6 +268,17 @@ public class PrincipalView extends javax.swing.JFrame {
     private void txt_productCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_productCantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_productCantActionPerformed
+
+    private void btn_nav_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nav_crearActionPerformed
+        // TODO add your handling code here:
+        
+        contenedor_tabla.setVisible(false);
+    }//GEN-LAST:event_btn_nav_crearActionPerformed
+
+    private void btn_nav_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nav_listarActionPerformed
+        // TODO add your handling code here:
+        contenedor_tabla.setVisible(true);
+    }//GEN-LAST:event_btn_nav_listarActionPerformed
 
 
     public Producto crear_producto(){
@@ -268,7 +293,7 @@ public class PrincipalView extends javax.swing.JFrame {
     }
     
     
-    public void clear()
+    private void clear()
     {
         txt_productId.setText("");
         txt_productName.setText("");
@@ -301,14 +326,15 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JButton bt_agregarProduct;
     private javax.swing.JButton bt_buscarProduct;
     private javax.swing.JButton bt_eliminarProduct;
+    private javax.swing.JMenuItem btn_nav_crear;
+    private javax.swing.JMenuItem btn_nav_listar;
+    private javax.swing.JScrollPane contenedor_tabla;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl;
     private javax.swing.JLabel lbl_productId;
     private javax.swing.JLabel lbl_productName;

@@ -4,6 +4,9 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author B09S206est
@@ -27,13 +30,27 @@ public class LoginView extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_correo = new javax.swing.JTextField();
+        pf_contraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Usuario");
+
+        jLabel2.setText("Contraseña");
+
+        txt_correo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_correoActionPerformed(evt);
             }
         });
 
@@ -42,16 +59,30 @@ public class LoginView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jButton1)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addGap(136, 136, 136)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pf_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(jButton1)
+                        .addComponent(jLabel2)
+                        .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(pf_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(jButton1)
-                .addGap(84, 84, 84))
+                .addGap(87, 87, 87))
         );
 
         pack();
@@ -59,12 +90,33 @@ public class LoginView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String correo = txt_correo.getText();
+        String contraseña = pf_contraseña.getText();
         
-        new PrincipalView().setVisible(true);
-        dispose();
+        if(correo.equalsIgnoreCase("admin") && contraseña.equalsIgnoreCase("admin")){
+           new PrincipalView().setVisible(true);
+           dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Credenciales incorrectas");
+            clear();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void clear(){
+        txt_correo.setText("");
+        pf_contraseña.setText("");
+    }
+    
+    private void txt_correoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correoActionPerformed
+       
+    }//GEN-LAST:event_txt_correoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField pf_contraseña;
+    private javax.swing.JTextField txt_correo;
     // End of variables declaration//GEN-END:variables
 }
